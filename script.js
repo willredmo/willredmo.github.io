@@ -39,5 +39,14 @@ function handleMobileNav() {
 }
 
 function handleSmoothScroll() {
-    // TODO
+    $('a[href*="#"]').on('click', function(e) {
+        e.preventDefault();
+
+        var elementTop = $($(this).attr('href')).offset().top + $("main").get(0).scrollTop;
+  
+        // http://gsgd.co.uk/sandbox/jquery/easing/
+        $('main').animate({
+            scrollTop: elementTop,
+        }, 1000,'easeInOutCirc');
+    });
 }   
