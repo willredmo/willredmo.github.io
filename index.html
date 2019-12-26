@@ -9,6 +9,9 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>Starter Template · Bootstrap</title>
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c97b8426a6.js" crossorigin="anonymous"></script>
+
     <!-- Roboto Font -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
@@ -45,63 +48,86 @@
     <script src="script.js"></script>
 </head>
 
-<body class="container-fluid p-0">
-    <div class="row h-100 m-0">
-        <ul class="nav col-md-4 flex-column justify-content-start justify-content-md-center align-items-start align-items-md-center">
-            <li class="nav-item align-items-center align-content-start">
-                <img src="avatar.svg" alt="Avatar"> 
-                <span>
-                    William Redmond
-                </span>
-                <i class="material-icons" id="navButton">menu</i>
-            </li>
-            <li>
-                <img class="big-avatar" src="avatar.svg" alt="Avatar">
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#intro">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#education">Education</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#experience">Work Experience</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#personal">Personal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-            </li>
-        </ul>
+<body>
+    <ul class="nav">
+        <li class="nav-item align-items-center align-content-start">
+            <img src="avatar.svg" alt="Avatar"> 
+            <span>
+                William Redmond
+            </span>
+            <i class="material-icons" id="navButton">menu</i>
+        </li>
+        <li class="big-avatar">
+            <img src="avatar.svg" alt="Avatar">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#intro">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#personal">Personal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+        </li>
+    </ul>
     
-        <main class="col-md-8 col-12">
-            <div class="row" id="intro">
-                <h1>Bootstrap starter template</h1>
-                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text
-                    and a mostly barebones HTML document.</p>
+    
+    <main class="container-fluid p-0">
+        <div class="row" id="intro">
+            <h1>William <span>Redmond</span></h1>
+            <p>Full Stack Developer</p>
+            <div class="links">
+                <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/william-redmond-b1bb16127/">
+                    <img src="logos/linkedin.svg" alt="Linkedin"> 
+                </a>
+                <a class="github" target="_blank" href="https://github.com/willredmo?tab=repositories">
+                    <img src="logos/github.svg" alt="Github"> 
+                </a>
             </div>
-            <div class="row" id="education">
-                Education
+        </div>
+        <div class="row" id="experience">
+            <h2>Experience</h2>
+        </div>
+        <div class="row" id="education">
+            <h2>Education</h2>
+            
+        </div>
+        <div class="row" id="skills">
+            <h2>Skills</h2>
+            
+        </div>
+        <div class="row" id="personal">
+            <h2>Personal</h2>
+            
+        </div>
+        <div class="row" id="contact">
+            <h2>Contact</h2>
+            
+        </div>            
+    </main>
+    
+    <div style="display: none;" id="templates">
+        <div class="item">
+            <div class="content">
+                <h3>Heading</h3>
+                <h4>Subheading</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula elementum nisi, et varius ligula pharetra ornare. In congue suscipit leo, in imperdiet lacus euismod sit amet. Phasellus consectetur enim at magna bibendum, vel suscipit nisl volutpat. Donec id blandit ligula, sit amet faucibus elit. Maecenas justo mauris, efficitur et blandit id, imperdiet eget justo. Sed tristique nulla eget quam gravida, sit amet aliquam massa auctor. Sed ornare nisl sit amet massa faucibus convallis. Sed sit amet sapien augue. Curabitur vel suscipit nibh, ut venenatis lacus. Sed convallis, augue vel hendrerit laoreet, lacus lorem auctor est, ut suscipit orci sapien sed lorem.</p>
             </div>
-            <div class="row" id="experience">
-                Work Experience
+            <div class="date-location">
+                <span class="date">Start Date - End Date</span>
+                <span class="location">Location</span>
             </div>
-            <div class="row" id="skills">
-                Skills
-            </div>
-            <div class="row" id="personal">
-                Personal
-            </div>
-            <div class="row" id="contact">
-                Contact
-            </div>            
-        </main>
+        </div>
     </div>
-    
 </body>
 
 </html>

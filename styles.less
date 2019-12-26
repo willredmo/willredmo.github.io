@@ -1,15 +1,47 @@
-body {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
-    font-family: 'Roboto', sans-serif;
+// Colors
+:root {
+    --color1: rgba(255, 252, 242, 1);
+    --color2: rgba(204, 197, 185, 1);
+    --color3: rgba(64, 61, 57, 1);
+    --color4: rgba(37, 36, 34, 1);
+    --color5: rgba(56, 136, 189, 1);
 }
 
+body {
+    min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    min-height: calc(var(--vh, 1vh) * 100);
+    font-family: 'Roboto', sans-serif;
+    padding-left: 270px;
+}
+
+
 .nav {
-    background-color: antiquewhite;
-    -webkit-transition:height 200ms ease-in-out;
-    -moz-transition:height 200ms ease-in-out;
-    -o-transition:height 200ms ease-in-out;
-    transition:height 400ms ease-in-out;
+    background-color: var(--color5);
+    height: calc(var(--vh, 1vh) * 100);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    text-transform: uppercase;
+    text-align: center;
+    li {
+        width: 100%;
+        .active {
+            color: var(--color1);
+        }
+        a {
+            color: var(--color2);
+            font-size: 20px;
+            font-weight: 400;
+            &:active, &:hover {
+                color: var(--color1);
+            }
+        }
+    }
     li:first-child {
         display: none;
         height: 56px;
@@ -25,37 +57,151 @@ body {
             user-select: none;
         }
     }
+    .big-avatar {
+        width: 80%;
+        img {
+            width: 100%;
+        }
+    }
 }
 
 main {
     height: 100%;
-    overflow-y: auto;
     >.row {
         min-height: calc(var(--vh, 1vh) * 100);
         align-content: center;
         border-bottom: 1px black solid;
+        margin: 0;
+        display: flex;
+        align-content: center;
+        padding: 48px;
+        h2 {
+            text-transform: uppercase;
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 70px;
+        }
     }
 }
 
-@media only screen and (max-width: 768px) {
+#intro {
+    h1 {
+        width: 100%;
+        font-size: 65px;
+        font-weight: 300;
+        span {
+            color: var(--color5);
+        }
+    }
+    p {
+        font-size: 30px;
+        font-weight: 300;
+        width: 100%;
+    }
+    .links {
+        display: flex;
+        a {
+            margin-right: 10px;
+            display: flex;
+            width: 80px;
+            height: 80px;
+            background-position: center;
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-color: black;
+            border-radius: 100%;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s ease-in-out;
+            img {
+                filter: invert(100%);
+                width: 50%;
+                height: 50%;
+            }
+            &:hover {
+                background-color: var(--color5);
+            }
+        }
+        .linkedin {
+            
+        }
+        .github {
+           
+        }
+    }
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    .content {
+        width: calc(100% - 254px);
+        h3 {
+            font-size: 35px;
+            font-weight: 400;
+        }
+        h4 {
+            color: var(--color3);
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+    }
+    .date-location {
+        display: flex;
+        flex-direction: column;
+        width: 254px;
+        text-align: right;
+        .date {
+            color: var(--color5)
+        }
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    body {
+        padding-left: 0;
+    }
     .nav {
+        -webkit-transition:height 400ms ease-in-out;
+        -moz-transition:height 400ms ease-in-out;
+        -o-transition:height 400ms ease-in-out;
+        transition:height 400ms ease-in-out;
+        justify-content: start;
+        align-items: start;
+        width: 100%;
         position: fixed;
         overflow: hidden;
-        z-index: 2;
         height: 56px;
+        z-index: 2;
         .big-avatar {
             display: none;
         }
         li:first-child {
             display: flex;
+            color: var(--color1);
         }
     }
+    .showNav {
+        height: 335px;
+    }
+    
 
     main {
         margin-top: 56px;
         height: calc(100% - 56px);
         >.row {
             min-height: calc((var(--vh, 1vh) * 100) - 56px);
+            padding: 16px;
+        }
+    }
+
+    .item {
+        flex-wrap: wrap;
+        .content, .date-location {
+            width: 100%;
+            text-align: left;
         }
     }
 }
