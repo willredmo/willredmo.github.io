@@ -25,7 +25,94 @@ var experience = [
     }
 
 ];
-var education = [];
+var education = [
+    {
+        heading: "Rochester Institute of Technology",
+        subheading: "Bachelor of Science",
+        info: "Web and Mobile Compuing<br/>GPA: 3.93",
+        date: "September 2015 - December 2019",
+        location: "Rochester, New York"
+    },
+    {
+        heading: "Cardinal Spellman High School",
+        subheading: "High School Diploma",
+        info: "",
+        date: "September 2011 - May 2015",
+        location: "Brockton, Massachusetts"
+    }
+];
+var skills = [
+    {
+        heading: "Front-End",
+        skills:[
+            {
+                name: "HTML",
+                value: 100
+            },
+            {
+                name: "CSS",
+                value: 100
+            },
+            {
+                name: "JavaScript",
+                value: 100
+            },
+            {
+                name: "LESS",
+                value: 60
+            },
+            {
+                name: "React",
+                value: 30
+            },
+            {
+                name: "AngularJS",
+                value: 60
+            },
+            {
+                name: "TypeScript",
+                value: 70
+            },
+        ]
+    },
+    {
+        heading: "Back-End",
+        skills:[
+            {
+                name: "PHP",
+                value: 100
+            },
+            {
+                name: "Java",
+                value: 90
+            },
+            {
+                name: "NodeJS",
+                value: 70
+            },
+            {
+                name: "SalesForce (Apex, SOQL, SOSL)",
+                value: 50
+            },
+            {
+                name: "Python",
+                value: 60
+            },
+            {
+                name: "Ruby",
+                value: 40
+            },
+            {
+                name: "C",
+                value: 30
+            },
+            {
+                name: "C#",
+                value: 60
+            }
+        ]
+    }
+]
 
 $(window).on("load", function() {
     initViewportHeight();
@@ -34,6 +121,7 @@ $(window).on("load", function() {
     handleSmoothScroll();
     handleActiveLink();
     generateResumeItems();
+    generateSkillItems();
 });
 
 
@@ -78,12 +166,15 @@ function handleMobileNav() {
 }
 
 function handleSmoothScroll() {
+
     $('a[href*="#"]').on("click", function(e) {
         e.preventDefault();
 
         var offset = $($(this).attr("href")).offset().top + $("body").get(0).scrollTop;
         if (window.matchMedia("(max-width: 990px)").matches) {
             offset -= 56;
+            $(".nav").removeClass("showNav");
+            navHidden = true;
         }
 
         $("html, body").stop(true).animate({
@@ -128,7 +219,30 @@ function generateResumeItems() {
     for (var i = 0; i < experience.length; i++) {
         $("#experience").append(generateItem(experience[i])); 
     }
+
+    // Generate Education
+    for (var i = 0; i < education.length; i++) {
+        $("#education").append(generateItem(education[i])); 
+    }
 }
+
+function generateSkillItems() {
+    for (var i = 0; i < skills.length; i++) {
+        $("#skills").append(generateCard(skills[i]));
+    }
+    
+    // fix card height
+    $(".flip-card").each(function() {
+        if ($(this).parent().attr("id") != "templates") {
+            var initialHeight = this.offsetHeight;
+            var contentHeight = $(this).find(".flip-card-back")[0].offsetHeight;
+            console.dir($(this).find(".flip-card-back")[0]);
+            if (contentHeight > initialHeight) {
+                $(this).height(contentHeight+"px");
+            }
+        }
+    });
+} 
 
 function generateItem(data) {
     var html = $("#templates .item").clone();
@@ -137,5 +251,33 @@ function generateItem(data) {
     $(html).find(".content p").html(data.info);
     $(html).find(".date").html(data.date);
     $(html).find(".location").html(data.location);
+    return html;
+}
+
+function generateCard(data) {
+    var html = $("#templates .flip-card").clone();
+
+    $(html).find(".flip-card-front h3").html(data.heading);
+
+    for (var i = 0; i < data.skills.length; i++) {
+        $(html).find(".flip-card-back").append(generateSkill(data.skills[i]));
+    }
+
+    var flipped = false;
+    $(html).click(function() {
+        if (flipped) {
+            $(html).find(".flip-card-inner").removeClass("flipped");
+        } else {
+            $(html).find(".flip-card-inner").addClass("flipped");
+        }
+        flipped = !flipped;
+    });
+    return html;
+}
+
+function generateSkill(data) {
+    var html = $("#templates .skill").clone();
+    $(html).find("h4").html(data.name);
+    $(html).find(".progress-bar").attr("aria-valuenow", data.value).css("width", data.value+"%");
     return html;
 }

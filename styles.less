@@ -2,9 +2,10 @@
 :root {
     --color1: rgba(255, 252, 242, 1);
     --color2: rgba(204, 197, 185, 1);
-    --color3: rgba(64, 61, 57, 1);
+    --color3: rgb(134, 142, 150);
     --color4: rgba(37, 36, 34, 1);
     --color5: rgba(56, 136, 189, 1);
+    --nav:  rgba(255, 255, 255, 0.5);
 }
 
 body {
@@ -34,7 +35,7 @@ body {
             color: var(--color1);
         }
         a {
-            color: var(--color2);
+            color: var(--nav);
             font-size: 20px;
             font-weight: 400;
             &:active, &:hover {
@@ -61,6 +62,7 @@ body {
         width: 80%;
         img {
             width: 100%;
+            cursor: pointer;
         }
     }
 }
@@ -76,9 +78,10 @@ main {
         align-content: center;
         padding: 48px;
         h2 {
+            width: 100%;
             text-transform: uppercase;
-            font-size: 50px;
-            font-weight: 500;
+            font-size: 60px;
+            font-weight: 200;
             margin-bottom: 70px;
         }
     }
@@ -122,12 +125,6 @@ main {
                 background-color: var(--color5);
             }
         }
-        .linkedin {
-            
-        }
-        .github {
-           
-        }
     }
 }
 
@@ -147,6 +144,9 @@ main {
             font-weight: 300;
             margin-bottom: 25px;
         }
+        p {
+            color: var(--color3);
+        }
     }
     .date-location {
         display: flex;
@@ -154,9 +154,95 @@ main {
         width: 254px;
         text-align: right;
         .date {
-            color: var(--color5)
+            color: var(--color5);
+        }
+        .location {
+            color: var(--color3);
         }
     }
+}
+
+.flip-card {
+    background-color: transparent;
+    width: calc(100% - 100px);
+    min-height: 200px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.5s;
+    margin-bottom: 50px;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover {
+    // transform: rotateY(180deg);
+    transform: scale(1.1);
+}
+
+.flip-card .flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+  
+.flip-card-front, .flip-card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: var(--color5);
+    color: var(--color1);
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.flip-card-back {
+    border: var(--color4) 1px solid;
+    color: var(--color3);
+    transform: rotateY(180deg);
+    padding: 10px;
+    h4 {
+        width: 250px;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: left;
+    }
+}
+
+#skills {
+    justify-content: center;
+}
+
+.skill {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    h4 {
+        margin: 0;
+    }
+    .progress {
+        width: 100%;
+    }
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background-color: var(--color5);
 }
 
 @media only screen and (max-width: 990px) {
@@ -182,18 +268,23 @@ main {
             display: flex;
             color: var(--color1);
         }
+        a {
+            padding: 4px;
+        }
     }
     .showNav {
         height: 335px;
     }
     
-
     main {
         margin-top: 56px;
         height: calc(100% - 56px);
         >.row {
             min-height: calc((var(--vh, 1vh) * 100) - 56px);
             padding: 16px;
+            h2 {
+                font-size: 50px;
+            }
         }
     }
 

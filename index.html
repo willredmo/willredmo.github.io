@@ -58,7 +58,7 @@
             <i class="material-icons" id="navButton">menu</i>
         </li>
         <li class="big-avatar">
-            <img src="avatar.svg" alt="Avatar">
+            <a class="nav-link" href="#intro"><img src="avatar.svg" alt="Avatar"></a>
         </li>
         <li class="nav-item">
             <a class="nav-link active" href="#intro">Home</a>
@@ -71,6 +71,9 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#personal">Personal</a>
@@ -99,12 +102,15 @@
         </div>
         <div class="row" id="education">
             <h2>Education</h2>
-            
         </div>
         <div class="row" id="skills">
             <h2>Skills</h2>
             
         </div>
+        <div class="row" id="projects">
+            <h2>Projects</h2>
+                
+        </div> 
         <div class="row" id="personal">
             <h2>Personal</h2>
             
@@ -112,7 +118,7 @@
         <div class="row" id="contact">
             <h2>Contact</h2>
             
-        </div>            
+        </div>           
     </main>
     
     <div style="display: none;" id="templates">
@@ -125,6 +131,23 @@
             <div class="date-location">
                 <span class="date">Start Date - End Date</span>
                 <span class="location">Location</span>
+            </div>
+        </div>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Title</h3>
+                </div>
+                <div class="flip-card-back">
+                </div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <h4>Skill</h4>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         </div>
     </div>
