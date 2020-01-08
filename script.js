@@ -146,7 +146,6 @@ function handleResize() {
                 value: $(link.hash).offset().top + $("body").get(0).scrollTop
             });
         });
-
         // Hide nav if large screen
         if (this.innerWidth > 1000) {
             navHidden = true;
@@ -237,9 +236,12 @@ function generateSkillItems() {
         if ($(this).parent().attr("id") != "templates") {
             var initialHeight = this.offsetHeight;
             var contentHeight = $(this).find(".flip-card-back")[0].offsetHeight;
-            console.dir($(this).find(".flip-card-back")[0]);
             if (contentHeight > initialHeight) {
                 $(this).height(contentHeight+"px");
+            }
+
+            if (isMobile()) {
+                $(this).addClass("hideBack");
             }
         }
     });
@@ -263,13 +265,23 @@ function generateCard(data) {
     for (var i = 0; i < data.skills.length; i++) {
         $(html).find(".flip-card-back").append(generateSkill(data.skills[i]));
     }
+    
 
     var flipped = false;
     $(html).click(function() {
-        if (flipped) {
-            $(html).find(".flip-card-inner").removeClass("flipped");
+        if (isMobile()) {
+            if (flipped) {
+                $(html).addClass("hideBack").removeClass("hideFront");
+            } else {
+                $(html).removeClass("hideBack").addClass("hideFront");
+            }
+            
         } else {
-            $(html).find(".flip-card-inner").addClass("flipped");
+            if (flipped) {
+                $(html).find(".flip-card-inner").removeClass("flipped");
+            } else {
+                $(html).find(".flip-card-inner").addClass("flipped");
+            }
         }
         flipped = !flipped;
     });
@@ -288,4 +300,8 @@ function handleValidateForm() {
         console.log("Validate form");
         $("#contact form").submit();
     });
+}
+
+function isMobile() {
+    return window.innerWidth < 1000;
 }

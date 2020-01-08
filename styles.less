@@ -183,7 +183,6 @@ main {
 }
 
 .flip-card:hover {
-    // transform: rotateY(180deg);
     transform: scale(1.1);
 }
 
@@ -320,6 +319,25 @@ main {
         h4 {
             margin-bottom: 5px;
             margin-left: 5px;
+        }
+    }
+
+    .flip-card, .flip-card-inner {
+        transition: none;
+    }
+
+    .flip-card:hover, .flip-card .flip-card-inner.flipped, .flip-card-back {
+        transform: none;
+    }
+
+    .flip-card.hideBack {
+        .flip-card-back {
+            display: none;
+        }
+    }
+    .flip-card.hideFront {
+        .flip-card-front {
+            display: none;
         }
     }
 }
