@@ -85,6 +85,9 @@ main {
             margin-bottom: 70px;
         }
     }
+    p {
+        color: var(--color3);
+    }
 }
 
 #intro {
@@ -143,9 +146,6 @@ main {
             color: var(--color3);
             font-weight: 300;
             margin-bottom: 25px;
-        }
-        p {
-            color: var(--color3);
         }
     }
     .date-location {
@@ -232,17 +232,35 @@ main {
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
     h4 {
         margin: 0;
     }
     .progress {
         width: 100%;
     }
-    margin-bottom: 15px;
 }
 
 .progress-bar {
     background-color: var(--color5);
+}
+
+
+#contact {
+    form {
+        width: 100%;
+        input, textarea {
+            width: 100%;
+            margin-bottom: 7px;
+        }
+        textarea {
+            height: 250px;
+        }
+        button {
+            width: 100px;
+            background-color: var(--color5);
+        }
+    }
 }
 
 @media only screen and (max-width: 990px) {
@@ -293,6 +311,15 @@ main {
         .content, .date-location {
             width: 100%;
             text-align: left;
+        }
+    }
+
+    .skill {
+        flex-wrap: wrap;
+        justify-content: start;
+        h4 {
+            margin-bottom: 5px;
+            margin-left: 5px;
         }
     }
 }

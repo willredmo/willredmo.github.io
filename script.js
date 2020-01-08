@@ -28,8 +28,8 @@ var experience = [
 var education = [
     {
         heading: "Rochester Institute of Technology",
-        subheading: "Bachelor of Science",
-        info: "Web and Mobile Compuing<br/>GPA: 3.93",
+        subheading: "Bachelor of Science in Web and Mobile Computing",
+        info: "GPA: 3.93<br/>Outstanding Scholar Award",
         date: "September 2015 - December 2019",
         location: "Rochester, New York"
     },
@@ -46,11 +46,7 @@ var skills = [
         heading: "Front-End",
         skills:[
             {
-                name: "HTML",
-                value: 100
-            },
-            {
-                name: "CSS",
+                name: "HTML/CSS",
                 value: 100
             },
             {
@@ -58,21 +54,25 @@ var skills = [
                 value: 100
             },
             {
-                name: "LESS",
-                value: 60
-            },
-            {
-                name: "React",
-                value: 30
-            },
-            {
-                name: "AngularJS",
-                value: 60
+                name: "jQuery",
+                value: 90
             },
             {
                 name: "TypeScript",
                 value: 70
             },
+            {
+                name: "LESS",
+                value: 60
+            },
+            {
+                name: "AngularJS",
+                value: 40
+            },
+            {
+                name: "React",
+                value: 30
+            }
         ]
     },
     {
@@ -91,12 +91,16 @@ var skills = [
                 value: 70
             },
             {
-                name: "SalesForce (Apex, SOQL, SOSL)",
-                value: 50
-            },
-            {
                 name: "Python",
                 value: 60
+            },
+            {
+                name: "C#",
+                value: 60
+            },
+            {
+                name: "SalesForce (Apex, SOQL, SOSL)",
+                value: 50
             },
             {
                 name: "Ruby",
@@ -105,10 +109,6 @@ var skills = [
             {
                 name: "C",
                 value: 30
-            },
-            {
-                name: "C#",
-                value: 60
             }
         ]
     }
@@ -122,6 +122,7 @@ $(window).on("load", function() {
     handleActiveLink();
     generateResumeItems();
     generateSkillItems();
+    handleValidateForm();
 });
 
 
@@ -280,4 +281,11 @@ function generateSkill(data) {
     $(html).find("h4").html(data.name);
     $(html).find(".progress-bar").attr("aria-valuenow", data.value).css("width", data.value+"%");
     return html;
+}
+
+function handleValidateForm() {
+    $("#contact button").click(function() {
+        console.log("Validate form");
+        $("#contact form").submit();
+    });
 }
