@@ -7,21 +7,24 @@ var experience = [
         subheading: "Johnson & Johnson",
         info: "Intern within IT R&D and worked on two Chef cookbooks. The first cookbook which contained Git submodules, automated the authorization of users on a cluster’s execute nodes (AWS EC2 instances) and deployed this cookbook as a Microsoft CycleCloud project. The second cookbook generated a Docker image with Chef Client installed on it within a VPC and utilized a base image retrieved from a private Docker registry.",
         date: "May 2018 - August 2018",
-        location: "Raritan, New Jersey"
+        location: "Raritan, New Jersey",
+        image: "https://static.seekingalpha.com/uploads/2017/4/28/40294-14934006724218686_origin.png"
     },
     {
         heading: "Web/UI Video Software Development Intern",
         subheading: "Lenel Systems International",
         info: "Worked in a team on web video tile for security cameras. Application is built in Typescript and consumes a private video streaming API to display live and recorded video in forward and reverse.",
         date: "September 2017 - December 2017",
-        location: "Pittsford, New York"
+        location: "Pittsford, New York",
+        image: "https://calcium.blob.core.windows.net/tpp/2f0ced1926864396456746d28af2149c"
     },
     {
         heading: "Development Intern",
         subheading: "MapAnything",
         info: "Worked on indoor mapping application for Dreamforce (Salesforce expo). Application was created using HTML, CSS, JavaScript. Retrieved data from Salesforce using REST API.",
         date: "June 2017 - August 2017",
-        location: "Atlanta, Georgia"
+        location: "Atlanta, Georgia",
+        image: "https://rosetreesolutions.com/wp-content/uploads/2017/11/mapanything.png"
     }
 
 ];
@@ -31,14 +34,16 @@ var education = [
         subheading: "Bachelor of Science in Web and Mobile Computing",
         info: "GPA: 3.93<br/>Outstanding Scholar Award",
         date: "September 2015 - December 2019",
-        location: "Rochester, New York"
+        location: "Rochester, New York",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rochester_Institute_of_Technology_seal.svg/1200px-Rochester_Institute_of_Technology_seal.svg.png"
     },
     {
         heading: "Cardinal Spellman High School",
         subheading: "High School Diploma",
         info: "",
         date: "September 2011 - May 2015",
-        location: "Brockton, Massachusetts"
+        location: "Brockton, Massachusetts",
+        image: "https://plusportals.blob.core.windows.net/cardinalspellmanhighschool-2019-20/login_banner.jpg"
     }
 ];
 var skills = [
@@ -66,13 +71,14 @@ var skills = [
                 value: 60
             },
             {
-                name: "AngularJS",
-                value: 40
+                name: "React",
+                value: 55
             },
             {
-                name: "React",
-                value: 30
+                name: "AngularJS",
+                value: 35
             }
+            
         ]
     },
     {
@@ -232,19 +238,21 @@ function generateSkillItems() {
     }
     
     // fix card height
-    $(".flip-card").each(function() {
-        if ($(this).parent().attr("id") != "templates") {
-            var initialHeight = this.offsetHeight;
-            var contentHeight = $(this).find(".flip-card-back")[0].offsetHeight;
-            if (contentHeight > initialHeight) {
-                $(this).height(contentHeight+"px");
+    setTimeout(() => {
+        $(".flip-card").each(function() {
+            if ($(this).parent().attr("id") != "templates") {
+                var initialHeight = this.offsetHeight;
+                var contentHeight = $(this).find(".flip-card-back")[0].offsetHeight;
+                if (contentHeight > initialHeight) {
+                    $(this).height(contentHeight+"px");
+                }
+    
+                if (isMobile()) {
+                    $(this).addClass("hideBack");
+                }
             }
-
-            if (isMobile()) {
-                $(this).addClass("hideBack");
-            }
-        }
-    });
+        });
+    }, 50);
 } 
 
 function generateItem(data) {
@@ -254,6 +262,7 @@ function generateItem(data) {
     $(html).find(".content p").html(data.info);
     $(html).find(".date").html(data.date);
     $(html).find(".location").html(data.location);
+    $(html).find(".img").css("background-image", "url("+data.image+")");
     return html;
 }
 
@@ -265,7 +274,6 @@ function generateCard(data) {
     for (var i = 0; i < data.skills.length; i++) {
         $(html).find(".flip-card-back").append(generateSkill(data.skills[i]));
     }
-    
 
     var flipped = false;
     $(html).click(function() {

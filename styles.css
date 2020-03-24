@@ -65,6 +65,7 @@ body {
   cursor: pointer;
 }
 main {
+  overflow: hidden;
   height: 100%;
 }
 main > .row {
@@ -146,12 +147,22 @@ main p {
   flex-direction: column;
   width: 254px;
   text-align: right;
+  align-items: flex-end;
 }
 .item .date-location .date {
   color: var(--color5);
 }
 .item .date-location .location {
   color: var(--color3);
+  padding-bottom: 10px;
+}
+.item .date-location .img {
+  height: 225px;
+  width: 225px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  flex-shrink: 0;
 }
 .flip-card {
   background-color: transparent;
@@ -173,10 +184,10 @@ main p {
   transform-style: preserve-3d;
 }
 .flip-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .flip-card .flip-card-inner.flipped {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 .flip-card-front,
 .flip-card-back {
@@ -199,7 +210,7 @@ main p {
 .flip-card-back {
   border: var(--color4) 1px solid;
   color: var(--color3);
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
   padding: 10px;
 }
 .flip-card-back h4 {
@@ -290,6 +301,7 @@ main p {
   .item .date-location {
     width: 100%;
     text-align: left;
+    align-items: flex-start;
   }
   .skill {
     flex-wrap: wrap;
@@ -299,19 +311,7 @@ main p {
     margin-bottom: 5px;
     margin-left: 5px;
   }
-  .flip-card,
-  .flip-card-inner {
-    transition: none;
-  }
-  .flip-card:hover,
-  .flip-card .flip-card-inner.flipped,
-  .flip-card-back {
+  .flip-card:hover {
     transform: none;
-  }
-  .flip-card.hideBack .flip-card-back {
-    display: none;
-  }
-  .flip-card.hideFront .flip-card-front {
-    display: none;
   }
 }
