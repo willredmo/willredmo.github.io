@@ -8,7 +8,7 @@ var experience = [
         info: "Intern within IT R&D and worked on two Chef cookbooks. The first cookbook which contained Git submodules, automated the authorization of users on a cluster’s execute nodes (AWS EC2 instances) and deployed this cookbook as a Microsoft CycleCloud project. The second cookbook generated a Docker image with Chef Client installed on it within a VPC and utilized a base image retrieved from a private Docker registry.",
         date: "May 2018 - August 2018",
         location: "Raritan, New Jersey",
-        image: "https://static.seekingalpha.com/uploads/2017/4/28/40294-14934006724218686_origin.png"
+        image: "images/j&j.png"
     },
     {
         heading: "Web/UI Video Software Development Intern",
@@ -16,7 +16,7 @@ var experience = [
         info: "Worked in a team on web video tile for security cameras. Application is built in Typescript and consumes a private video streaming API to display live and recorded video in forward and reverse.",
         date: "September 2017 - December 2017",
         location: "Pittsford, New York",
-        image: "https://calcium.blob.core.windows.net/tpp/2f0ced1926864396456746d28af2149c"
+        image: "images/lenel.png"
     },
     {
         heading: "Development Intern",
@@ -24,7 +24,7 @@ var experience = [
         info: "Worked on indoor mapping application for Dreamforce (Salesforce expo). Application was created using HTML, CSS, JavaScript. Retrieved data from Salesforce using REST API.",
         date: "June 2017 - August 2017",
         location: "Atlanta, Georgia",
-        image: "https://rosetreesolutions.com/wp-content/uploads/2017/11/mapanything.png"
+        image: "images/mapanything.png"
     }
 
 ];
@@ -32,10 +32,10 @@ var education = [
     {
         heading: "Rochester Institute of Technology",
         subheading: "Bachelor of Science in Web and Mobile Computing",
-        info: "GPA: 3.93<br/>Outstanding Scholar Award",
+        info: "GPA: 3.93<a target=\"_blank\" href=\"https://meritpages.com/William-Redmond/3115530\">Dean's List</a><a target=\"_blank\" href=\"https://www.rit.edu/academicaffairs/outstanding-undergraduate-scholars/2019-2020-outstanding-undergraduate-scholars\">Outstanding Scholar Award</a>",
         date: "September 2015 - December 2019",
         location: "Rochester, New York",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rochester_Institute_of_Technology_seal.svg/1200px-Rochester_Institute_of_Technology_seal.svg.png"
+        image: "images/rit.png"
     },
     {
         heading: "Cardinal Spellman High School",
@@ -43,7 +43,7 @@ var education = [
         info: "",
         date: "September 2011 - May 2015",
         location: "Brockton, Massachusetts",
-        image: "https://plusportals.blob.core.windows.net/cardinalspellmanhighschool-2019-20/login_banner.jpg"
+        image: "images/spellman.jpg"
     }
 ];
 var skills = [
@@ -118,6 +118,36 @@ var skills = [
             }
         ]
     }
+];
+var personalPictures = [
+    {
+        url: "images/paintball1.jpg",
+        header: "",
+        label: ""
+    },
+    {
+        url: "images/parents.jpg",
+        header: "",
+        label: ""
+    }
+];
+var projects = [
+    {
+        heading: "BattleFlood",
+        subheading: "Turn Based 2 Player Game",
+        info: "I built this application as project for one of my upper level courses during Info about battleflood<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/battleflood'>View Code</a>",
+        date: "",
+        location: "",
+        image: "images/battleflood.png"
+    },
+    {
+        heading: "Cocktail Project",
+        subheading: "Application For New Finding Cocktails",
+        info: "info about cocktail project<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/cocktailProject'>View Code</a>",
+        date: "",
+        location: "",
+        image: "images/cocktail.png"
+    }
 ]
 
 $(window).on("load", function() {
@@ -129,6 +159,7 @@ $(window).on("load", function() {
     generateResumeItems();
     generateSkillItems();
     handleValidateForm();
+    generatePersonalCarousel();
 });
 
 
@@ -157,6 +188,9 @@ function handleResize() {
             navHidden = true;
             $(".nav").removeClass("showNav");
         }
+
+        // Skills height resize
+        resizeSkillsHeight();
     });
 }
 
@@ -172,9 +206,11 @@ function handleMobileNav() {
 }
 
 function handleSmoothScroll() {
-
     $('a[href*="#"]').on("click", function(e) {
         e.preventDefault();
+        if (e.target.className != "nav-link") {
+            return; 
+        }
 
         var offset = $($(this).attr("href")).offset().top + $("body").get(0).scrollTop;
         if (window.matchMedia("(max-width: 990px)").matches) {
@@ -219,7 +255,6 @@ function handleActiveLink() {
     });
 }
 
-
 function generateResumeItems() {
     // Generate Experience
     for (var i = 0; i < experience.length; i++) {
@@ -230,6 +265,11 @@ function generateResumeItems() {
     for (var i = 0; i < education.length; i++) {
         $("#education").append(generateItem(education[i])); 
     }
+
+    // Generate Projects
+    for (var i = 0; i < projects.length; i++) {
+        $("#projects").append(generateItem(projects[i])); 
+    }
 }
 
 function generateSkillItems() {
@@ -239,21 +279,31 @@ function generateSkillItems() {
     
     // fix card height
     setTimeout(() => {
-        $(".flip-card").each(function() {
-            if ($(this).parent().attr("id") != "templates") {
-                var initialHeight = this.offsetHeight;
-                var contentHeight = $(this).find(".flip-card-back")[0].offsetHeight;
-                if (contentHeight > initialHeight) {
-                    $(this).height(contentHeight+"px");
-                }
-    
-                if (isMobile()) {
-                    $(this).addClass("hideBack");
-                }
-            }
-        });
+        resizeSkillsHeight();
     }, 50);
 } 
+
+function resizeSkillsHeight() {
+    $(".flip-card").each(function() {
+        if ($(this).parent().attr("id") != "templates") {
+            var currentHeight = this.offsetHeight;
+            var contentHeight;
+            if (isMobile()) {
+                contentHeight = $(this).find(".flip-card-back .content")[0].offsetHeight + $(this).find(".flip-card-back h3")[0].offsetHeight;
+            } else {
+                contentHeight = $(this).find(".flip-card-back .content")[0].offsetHeight;
+            }
+
+            if (contentHeight != currentHeight) {
+                $(this).height(contentHeight+"px");
+            }
+
+            // console.log("___________________________________________");
+            // console.log("Initial: "+currentHeight);
+            // console.log("Content: "+contentHeight);
+        }
+    });
+}
 
 function generateItem(data) {
     var html = $("#templates .item").clone();
@@ -269,29 +319,24 @@ function generateItem(data) {
 function generateCard(data) {
     var html = $("#templates .flip-card").clone();
 
-    $(html).find(".flip-card-front h3").html(data.heading);
+    $(html).find(".flip-card-front h3, .flip-card-back h3").html(data.heading);
 
     for (var i = 0; i < data.skills.length; i++) {
-        $(html).find(".flip-card-back").append(generateSkill(data.skills[i]));
+        $(html).find(".flip-card-back .content").append(generateSkill(data.skills[i]));
     }
 
     var flipped = false;
     $(html).click(function() {
         if (isMobile()) {
-            if (flipped) {
-                $(html).addClass("hideBack").removeClass("hideFront");
-            } else {
-                $(html).removeClass("hideBack").addClass("hideFront");
-            }
-            
+            // Do nothing
         } else {
             if (flipped) {
                 $(html).find(".flip-card-inner").removeClass("flipped");
             } else {
                 $(html).find(".flip-card-inner").addClass("flipped");
             }
+            flipped = !flipped;
         }
-        flipped = !flipped;
     });
     return html;
 }
@@ -313,3 +358,37 @@ function handleValidateForm() {
 function isMobile() {
     return window.innerWidth < 1000;
 }
+
+function generatePersonalCarousel() {
+    var carouselDiv = $("#templates .carousel").clone();
+    $(carouselDiv).attr("id", "personalCarousel");
+    $(carouselDiv).find(".carousel-control-prev, .carousel-control-next").attr("href", "#personalCarousel");
+    personalPictures.forEach(picture => {
+        console.log(picture);
+        // Item
+        var carouselItem = $("#templates .carousel-item").clone();
+        $(carouselItem).find(".img").css("background-image", "url('"+picture.url+"')");
+        $(carouselItem).find("h5").text(picture.header);
+        $(carouselItem).find("p").text(picture.label);
+
+        // Indicator
+        var carouselIndicator = document.createElement("li");
+        $(carouselIndicator).attr({
+            "data-target": "#personalCarousel",
+            "data-slide-to": personalPictures.indexOf(picture)
+        });
+
+        // Make first picture active
+        if (personalPictures.indexOf(picture) == 0) {
+            $(carouselIndicator).addClass("active");
+            $(carouselItem).addClass("active");
+        } 
+
+        $(carouselDiv).find(".carousel-inner").append(carouselItem);
+        $(carouselDiv).find(".carousel-indicators").append(carouselIndicator);
+    });
+    
+    $("#personal").append(carouselDiv);
+    $("#personalCarousel").carousel();
+}
+
