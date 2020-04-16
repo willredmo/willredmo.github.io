@@ -121,6 +121,11 @@ var skills = [
 ];
 var personalPictures = [
     {
+        url: "images/scituate.jpg",
+        header: "",
+        label: ""
+    },
+    {
         url: "images/paintball1.jpg",
         header: "",
         label: ""
@@ -129,13 +134,17 @@ var personalPictures = [
         url: "images/parents.jpg",
         header: "",
         label: ""
-    }
+    },
+    
 ];
 var projects = [
     {
         heading: "BattleFlood",
         subheading: "Turn Based 2 Player Game",
-        info: "I built this application as project for one of my upper level courses during Info about battleflood<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/battleflood'>View Code</a>",
+        info: `
+        I built this application as project for one of my upper level courses. The front-end is built in JavaScript/HTML/Less and the back-end is built in PHP. The game is one on one where each player takes turns selecting a color and takes control of the adjacent blocks same colors. All players start in the main lobby and move to a separate lobby when they start a match. I have also built from scratch both an account and chat system. I have also made this application mobile accessible.
+        <a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/battleflood'>View Code</a>",
+        `,
         date: "",
         location: "",
         image: "images/battleflood.png"
@@ -143,7 +152,9 @@ var projects = [
     {
         heading: "Cocktail Project",
         subheading: "Application For New Finding Cocktails",
-        info: "info about cocktail project<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/cocktailProject'>View Code</a>",
+        info: `This application is another project for one of my elective courses: Beverage Fermentations and Distillations. I built the application solely in JavaScript/HTML/Less and retrieved the data from a free API called "CocktailDB". The user can search for random cocktails to make or use the multiple types of filters to find the cocktail they desire. This application is also mobile accessible.
+        <a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Link to application</a><a target='_blank' href='https://github.com/willredmo/cocktailProject'>View Code</a>",
+        `,
         date: "",
         location: "",
         image: "images/cocktail.png"
