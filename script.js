@@ -183,7 +183,7 @@ var personalPictures = [
         label: ""
     },
     {
-        url: "images/paintball1.jpg",
+        url: "images/paintball.jpg",
         header: "",
         label: ""
     },
