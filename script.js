@@ -246,14 +246,18 @@ var projects = [
 
 $(window).on("load", function() {
     initViewportHeight();
+    
+    // Generate content
+    generateResumeItems();
+    // generateSkillItems();
+    generatePersonalCarousel();
+
+    // Add event listeners
     handleResize();
     handleMobileNav();
     handleSmoothScroll();
-    handleActiveLink();
-    generateResumeItems();
-    // generateSkillItems();
     handleValidateForm();
-    generatePersonalCarousel();
+    handleActiveLink();
 });
 
 
@@ -323,7 +327,8 @@ function handleActiveLink() {
     $(".nav a").each(function(index, link) {
         sections.push({
             name: link.hash,
-            value: $(link.hash).offset().top + $("body").get(0).scrollTop
+            heightFromTop: $(link.hash).offset().top + $("body").get(0).scrollTop,
+            height: $(link.hash).height()
         });
     });
 
@@ -337,7 +342,7 @@ function handleActiveLink() {
         var activeSection;
         for (var i = 0; i < sections.length; i++) {
             var section = sections[i];
-            if (fromTop >= section.value) {
+            if (fromTop >= section.heightFromTop) {
                 activeSection = section;
             } else {
                 break;
@@ -472,35 +477,37 @@ function isMobile() {
 }
 
 function generatePersonalCarousel() {
-    var carouselDiv = $("#templates .carousel").clone();
-    $(carouselDiv).attr("id", "personalCarousel");
-    $(carouselDiv).find(".carousel-control-prev, .carousel-control-next").attr("href", "#personalCarousel");
-    personalPictures.forEach(picture => {
-        console.log(picture);
-        // Item
-        var carouselItem = $("#templates .carousel-item").clone();
-        $(carouselItem).find(".img").css("background-image", "url('"+picture.url+"')");
-        $(carouselItem).find("h5").text(picture.header);
-        $(carouselItem).find("p").text(picture.label);
-
-        // Indicator
-        var carouselIndicator = document.createElement("li");
-        $(carouselIndicator).attr({
-            "data-target": "#personalCarousel",
-            "data-slide-to": personalPictures.indexOf(picture)
-        });
-
-        // Make first picture active
-        if (personalPictures.indexOf(picture) == 0) {
-            $(carouselIndicator).addClass("active");
-            $(carouselItem).addClass("active");
-        } 
-
-        $(carouselDiv).find(".carousel-inner").append(carouselItem);
-        $(carouselDiv).find(".carousel-indicators").append(carouselIndicator);
-    });
+    return new Promise(resolve => {
+        var carouselDiv = $("#templates .carousel").clone();
+        $(carouselDiv).attr("id", "personalCarousel");
+        $(carouselDiv).find(".carousel-control-prev, .carousel-control-next").attr("href", "#personalCarousel");
+        personalPictures.forEach(picture => {
+            console.log(picture);
+            // Item
+            var carouselItem = $("#templates .carousel-item").clone();
+            $(carouselItem).find(".img").css("background-image", "url('"+picture.url+"')");
+            $(carouselItem).find("h5").text(picture.header);
+            $(carouselItem).find("p").text(picture.label);
     
-    $("#personal").append(carouselDiv);
-    $("#personalCarousel").carousel();
+            // Indicator
+            var carouselIndicator = document.createElement("li");
+            $(carouselIndicator).attr({
+                "data-target": "#personalCarousel",
+                "data-slide-to": personalPictures.indexOf(picture)
+            });
+    
+            // Make first picture active
+            if (personalPictures.indexOf(picture) == 0) {
+                $(carouselIndicator).addClass("active");
+                $(carouselItem).addClass("active");
+            } 
+    
+            $(carouselDiv).find(".carousel-inner").append(carouselItem);
+            $(carouselDiv).find(".carousel-indicators").append(carouselIndicator);
+        });
+        
+        $("#personal").append(carouselDiv);
+        $("#personalCarousel").carousel();
+    });
 }
 
