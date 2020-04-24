@@ -3,19 +3,24 @@ var navHidden = true;
 var sections = [];
 var experience = [
     {  
-        heading: "Back-end Contractor",
+        heading: "Back-end Developer",
         subheading: "LynksIn",
         skills: [
-            "NodeJS",
-            "TypeScript",
-            "AWS",
-            "Serverless",
-            "MongoDB",
-            "Mongoose",
+            "NodeJS", 
+            "TypeScript", 
+            "AWS", 
+            "Lambda", 
+            "Serverless", 
+            "MongoDB", 
+            "Mongoose", 
+            "Firebase", 
+            "Sendbird", 
             "Git"
         ],
         info: [
-            "Info about Lyskin"
+            "Took over an existing code base of golfing application which has back-end built in NodeJS for seperate IOS and Android applications",
+            "Deployed on AWS Lambda using the Serverless framework and retrieves data from a MongoDB database using Mongoose",
+            "Maintained code and added new features such as integration with Sendbird and account creation"
         ],
         date: "January - April 2020",
         location: "Remote",
