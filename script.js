@@ -15,12 +15,17 @@ var experience = [
             "Mongoose", 
             "Firebase", 
             "Sendbird", 
-            "Git"
+            "Git",
+            "CodeCommit", 
+            "CloudWatch"
         ],
         info: [
-            "Took over an existing code base of golfing application which has back-end built in NodeJS for seperate IOS and Android applications",
-            "Deployed on AWS Lambda using the Serverless framework and retrieves data from a MongoDB database using Mongoose",
-            "Maintained code and added new features such as integration with Sendbird and account creation"
+            "Took over an existing code base of a social application for golfers",
+            "Back-end built in NodeJS for IOS, Android, Web apps",
+            "Deployed on AWS Lambda using the Serverless framework",
+            "Retrieves data from a MongoDB database using Mongoose",
+            "Added endpoint for user account creation from Wordpress",
+            "Integration with Sendbird for private messaging within IOS and Android apps"
         ],
         date: "January - April 2020",
         location: "Remote",
