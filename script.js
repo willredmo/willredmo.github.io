@@ -33,7 +33,7 @@ var experience = [
     },
     {
         heading: "IT Intern",
-        subheading: "Johnson & Johnson",
+        subheading: "Johnson & Johnson, IT R&D",
         skills: [
             "AWS",
             "EC2 Cluster",
@@ -44,7 +44,7 @@ var experience = [
             "Git"
         ],
         info: [
-            "Worked in IT R&D to create two Chef cookbooks that maintained a cluster of AWS EC2 instances",
+            "Created two Chef cookbooks that maintained a cluster of AWS EC2 instances",
             "The first cookbook contained Git submodules, automated the authorization of users on a cluster’s execute nodes (AWS EC2 instances), and deployed this cookbook as a Microsoft CycleCloud project",
             "Wrote another cookbook that generated a Docker image with a Chef Client installed on it within a VPC and utilized a base image retrieved from a private Docker registry"
         ],
@@ -54,16 +54,16 @@ var experience = [
     },
     {
         heading: "Web/UI Video Software Development Intern",
-        subheading: "Lenel Systems International",
+        subheading: "Lenel Systems International, Web Video",
         skills: [
             "TypeScript",
             "Agile Development",
             "Git"
         ],
         info: [
-            "Worked in a team that was tasked with creating web video tile for security cameras that would be part of a larger application",
-            "Coded in TypeScript and received video data from a streaming API developed by the back-end team",
-            "Implemented playing the video in reverse and a buffer that helped with loading video data"
+            "Created web video tile for security cameras to replace legacy application",
+            "Wrote TypeScript code to receive video data from a streaming API developed by the back-end team",
+            "Implemented reverse function for video player and a buffer that managed loading video data"
         ],
         date: "September - December 2017",
         location: "Pittsford, New York",
@@ -75,6 +75,7 @@ var experience = [
         skills: [
             "JavaScript",
             "jQuery",
+            "SVG.js",
             "HTML",
             "CSS",
             "Salesforce (Apex, Lightning,Visualforce, SOQL, SOSL)",
@@ -82,14 +83,13 @@ var experience = [
         ],
         info: [
             "Worked on an indoor mapping application for Dreamforce (Salesforce expo)",
-            "The application was created using HTML, CSS, JavaScript",
-            "Data was stored and retrieved from Salesforce using a REST API"
+            "Developed an interactive map using HTML, CSS, and JavaScript to visualize conference activities",
+            "Stored and retrieved data and images using a Salesforce REST API"
         ],
         date: "June - August 2017",
         location: "Atlanta, Georgia",
         image: "images/mapanything.png"
     }
-
 ];
 var education = [
     {
@@ -97,8 +97,8 @@ var education = [
         subheading: "Bachelor of Science in Web and Mobile Computing",
         info: [
             "GPA: 3.93",
-            "<a target=\"_blank\" href=\"https://meritpages.com/William-Redmond/3115530\">Dean's List</a>",
-            "<a target=\"_blank\" href=\"https://www.rit.edu/academicaffairs/outstanding-undergraduate-scholars/2019-2020-outstanding-undergraduate-scholars\">Outstanding Scholar Award</a>"
+            "<a target=\"_blank\" href=\"https://meritpages.com/William-Redmond/3115530\">Dean's List</a> - Fall 2015 - Fall 2019",
+            "<a target=\"_blank\" href=\"https://www.rit.edu/academicaffairs/outstanding-undergraduate-scholars/2019-2020-outstanding-undergraduate-scholars\">Outstanding Scholar Award</a> - Top 1% of undergraduate students that are able to maintain a high standard of academic excellence while also giving back to their community through civic or volunteer work, conducting research, or being engaged in co-op or work in their field of study."
         ],
         date: "September 2015 - December 2019",
         location: "Rochester, New York",
@@ -223,7 +223,7 @@ var projects = [
             "Created game logic in the backend that was able to identify adjacent blocks of the same color",
             "Implemented account, lobby, and chat systems into the game",
             "Playable with both large and small screens",
-            "<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Use application</a>",
+            "<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Use Application</a>",
             "<a target='_blank' href='https://github.com/willredmo/battleflood'>View Code</a>"
         ],
         date: "",
@@ -245,7 +245,7 @@ var projects = [
             "Application is composed solely of JavaScript/HTML/Less and retrieved the data from a free API called \"CocktailDB\"",
             "Designed filters to allow users to find cocktails that match their criteria",
             "Adjusted for both large and small screens",
-            "<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Use application</a>",
+            "<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Use Application</a>",
             "<a target='_blank' href='https://github.com/willredmo/cocktailProject'>View Code</a>"
         ],
         date: "",

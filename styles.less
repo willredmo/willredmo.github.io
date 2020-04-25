@@ -231,14 +231,17 @@ main {
             color: var(--color3);
             padding-bottom: 10px;
         }
-        .img {
-            height: 175px;
-            width: 225px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            flex-shrink: 0;
-        }
+    }
+    .img {
+        height: 175px;
+        width: 225px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        flex-shrink: 0;
+    }
+    .img.mobile {
+        display: none;
     }
 }
 
@@ -449,21 +452,31 @@ main {
             width: 100%;
             text-align: left;
             align-items: flex-start;
+            .img {
+                display: none;
+            }
+        }
+        .img.mobile {
+            display: block;
+            background-position-y: bottom;
+            margin-bottom: 10px;
+            height: 150px;
         }
     }
 
     #projects {
         .item {
-            // flex-wrap: wrap;
             .content, .date-location {
                 width: 100%;
             }
             .date-location {
                 width: 100%;
-                // .img {
-                //     height: 400px;
-                //     width: 100%;
-                // }
+                .img {
+                    display: block;
+                }
+            }
+            .img.mobile {
+                display: none;
             }
         }
     }
