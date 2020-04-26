@@ -61,7 +61,7 @@ var experience = [
             "Git"
         ],
         info: [
-            "Created web video tile for security cameras to replace legacy application",
+            "Created web video tile for security cameras to replace a legacy application",
             "Wrote TypeScript code to receive video data from a streaming API developed by the back-end team",
             "Implemented reverse function for video player and a buffer that managed loading video data"
         ],
@@ -241,7 +241,7 @@ var projects = [
             "Mobile Responsive"
         ],
         info: [
-            "Wrote mobile friendly application for one of my elective courses, Beverage Fermentations and Distillations",
+            "Wrote a mobile friendly application for one of my elective courses, Beverage Fermentations and Distillations",
             "Application is composed solely of JavaScript/HTML/Less and retrieved the data from a free API called \"CocktailDB\"",
             "Designed filters to allow users to find cocktails that match their criteria",
             "Adjusted for both large and small screens",
