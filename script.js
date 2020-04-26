@@ -45,7 +45,7 @@ var experience = [
         ],
         info: [
             "Created two Chef cookbooks that maintained a cluster of AWS EC2 instances",
-            "The first cookbook contained Git submodules, automated the authorization of users on a cluster’s execute nodes (AWS EC2 instances), and deployed this cookbook as a Microsoft CycleCloud project",
+            "Wrote a cookbook that contained Git submodules, automated the authorization of users on a cluster’s execute nodes (AWS EC2 instances), and deployed this cookbook as a Microsoft CycleCloud project",
             "Wrote another cookbook that generated a Docker image with a Chef Client installed on it within a VPC and utilized a base image retrieved from a private Docker registry"
         ],
         date: "May - August 2018",
