@@ -3,7 +3,7 @@ var navHidden = true;
 var sections = [];
 var experience = [
     {  
-        heading: "Back-end Developer",
+        heading: "Back End Developer",
         subheading: "LynksIn",
         skills: [
             "NodeJS", 
