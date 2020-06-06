@@ -222,11 +222,11 @@ var projects = [
             "Mongoose"
         ],
         info: [
-            "Based off a simple application I created for one of my elective courses, Beverage Fermentations and Distillations",
-            "Application is build on a MERN stack (Mongodb, Express, React, Nodejs) and deployed onto AWS Elastic Beanstalk",
+            "Based on a simple application I created for one of my elective courses, Beverage Fermentations and Distillations",
+            "Application is built on a MERN stack (Mongodb, Express, React, Nodejs) and deployed onto AWS Elastic Beanstalk",
             "Designed filters to allow users to find cocktails that match their criteria",
             "Adjusted for both large and small screens",
-            "Front-end use the Material-UI React Framework to render many of its components",
+            "Front-end uses the Material-UI React Framework to render many of its components",
             "<a target='_blank' href='http://cocktailapp-env.eba-kri7kcpa.us-east-1.elasticbeanstalk.com/'>Use Application</a>",
             "<a target='_blank' href='https://github.com/willredmo/react-cocktail'>View Code</a>"
         ],
