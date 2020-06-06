@@ -206,6 +206,35 @@ var personalPictures = [
 ];
 var projects = [
     {
+        heading: "Cocktail Project",
+        subheading: "Application For New Finding Cocktails",
+        skills: [
+            "React",
+            "Functional Components",
+            "JavaScript",
+            "Material UI",
+            "React-window",
+            "SASS",
+            "Mobile Responsive",
+            "Nodejs",
+            "Express",
+            "Mongodb",
+            "Mongoose"
+        ],
+        info: [
+            "Based off a simple application I created for one of my elective courses, Beverage Fermentations and Distillations",
+            "Application is build on a MERN stack (Mongodb, Express, React, Nodejs) and deployed onto AWS Elastic Beanstalk",
+            "Designed filters to allow users to find cocktails that match their criteria",
+            "Adjusted for both large and small screens",
+            "Front-end use the Material-UI React Framework to render many of its components",
+            "<a target='_blank' href='http://cocktailapp-env.eba-kri7kcpa.us-east-1.elasticbeanstalk.com/'>Use Application</a>",
+            "<a target='_blank' href='https://github.com/willredmo/react-cocktail'>View Code</a>"
+        ],
+        date: "",
+        location: "",
+        image: "images/cocktail.png"
+    },
+    {
         heading: "BattleFlood",
         subheading: "Turn Based 2 Player Game",
         skills: [
@@ -229,29 +258,8 @@ var projects = [
         date: "",
         location: "",
         image: "images/battleflood.png"
-    },
-    {
-        heading: "Cocktail Project",
-        subheading: "Application For New Finding Cocktails",
-        skills: [
-            "JavaScript",
-            "jQuery",
-            "HTML",
-            "LESS",
-            "Mobile Responsive"
-        ],
-        info: [
-            "Wrote a mobile friendly application for one of my elective courses, Beverage Fermentations and Distillations",
-            "Application is composed solely of JavaScript/HTML/Less and retrieved the data from a free API called \"CocktailDB\"",
-            "Designed filters to allow users to find cocktails that match their criteria",
-            "Adjusted for both large and small screens",
-            "<a target='_blank' href='http://ec2-54-85-190-233.compute-1.amazonaws.com/battleflood/client/login.php'>Use Application</a>",
-            "<a target='_blank' href='https://github.com/willredmo/cocktailProject'>View Code</a>"
-        ],
-        date: "",
-        location: "",
-        image: "images/cocktail.png"
     }
+    
 ]
 
 $(window).on("load", function() {
