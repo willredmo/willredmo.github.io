@@ -94,11 +94,13 @@ var experience = [
 var education = [
     {
         heading: "Rochester Institute of Technology",
-        subheading: "Bachelor of Science in Web and Mobile Computing",
+        subheading: "Bachelor of Science in Web and Mobile Computing, <i>summa cum laude<i/>",
         info: [
             "GPA: 3.93",
             "<a target=\"_blank\" href=\"https://meritpages.com/William-Redmond/3115530\">Dean's List</a> - Fall 2015 - Fall 2019",
-            "<a target=\"_blank\" href=\"https://www.rit.edu/academicaffairs/outstanding-undergraduate-scholars/2019-2020-outstanding-undergraduate-scholars\">Outstanding Scholar Award</a> - Top 1% of undergraduate students that are able to maintain a high standard of academic excellence while also giving back to their community through civic or volunteer work, conducting research, or being engaged in co-op or work in their field of study."
+            "<a target=\"_blank\" href=\"https://www.rit.edu/academicaffairs/outstanding-undergraduate-scholars/2019-2020-outstanding-undergraduate-scholars\">Outstanding Scholar Award</a> - Top 1% of undergraduate students that are able to maintain a high standard of academic excellence while also giving back to their community through civic or volunteer work, conducting research, or being engaged in co-op or work in their field of study.",
+            "<a target=\"_blank\" href=\"https://www.parchment.com/u/award/6a5ac37512a6887dfc48ff20a26fc7d5\">Diploma</a>",
+            "President of RIT Paintball Team"
         ],
         date: "September 2015 - December 2019",
         location: "Rochester, New York",
