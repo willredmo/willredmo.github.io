@@ -330,6 +330,9 @@ function handleSmoothScroll() {
             return; 
         }
 
+        let w = window.innerWidth;
+        console.log("Width: " + w);
+
         var offset = $($(this).attr("href")).offset().top + $("body").get(0).scrollTop;
         if (window.matchMedia("(max-width: 990px)").matches) {
             offset -= 56;
