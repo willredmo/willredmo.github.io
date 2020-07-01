@@ -335,6 +335,7 @@ function handleSmoothScroll() {
             offset -= 56;
             $(".nav").removeClass("showNav");
             navHidden = true;
+            console.log("Small smooth scroll");
         }
 
         $("html, body").stop(true).animate({
