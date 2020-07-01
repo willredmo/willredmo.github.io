@@ -298,6 +298,7 @@ function handleResize() {
         $(".nav a").each(function(index, link) {
             sections.push({
                 name: link.hash,
+                heightFromTop: $(link.hash).offset().top + $("body").get(0).scrollTop,
                 value: $(link.hash).offset().top + $("body").get(0).scrollTop
             });
         });
@@ -372,6 +373,9 @@ function handleActiveLink() {
                 break;
             }
         }
+
+        console.log(activeSection);
+        console.log(sections);
 
         $(".nav a").not("a[href='"+activeSection.name+"']").removeClass("active");
         $(".nav a[href='"+activeSection.name+"']").addClass("active");
